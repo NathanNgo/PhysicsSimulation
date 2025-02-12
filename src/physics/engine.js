@@ -1,6 +1,7 @@
 import { Circle } from './rigid';
 import { isColliding, isCollidingBoundary } from './collision/collisionDetection';
 import { resolveCollision, resolveBoundaryCollision } from './collision/collisionResolution';
+import { vec2 as v } from 'gl-matrix';
 
 class Engine {
     /**
@@ -21,7 +22,7 @@ class Engine {
      * Updates an array of RigidBody's.
      * @param {RigidBody[]} vals - An array of RigidBody's or objects inherited from RigidBody.
      */
-    update(vals, timeDelta = 1) {
+    update(vals) {
         for (let i = 0; i < vals.length; i++) {
             // Detect and resolve object-object collisions.
             for (let j = i + 1; j < vals.length; j++) {
@@ -56,7 +57,7 @@ class Engine {
             // Move the objects by their velocities.
             if (vals[i] instanceof Circle) {
                 for (let c = 0; c < vals[i].coords.length; c++) {
-                    vals[i].coords[c] += vals[i].velocity[c]*timeDelta;
+                    vals[i].coords[c] += vals[i].velocity[c];
                 }
             }
 
