@@ -50,8 +50,8 @@ class PhysicsSimulation extends React.Component {
                 amount: Math.floor(Math.random()*(20 - 10) + 10),
                 minRadius: 10,
                 maxRadius: 60,
-                minVel: 100,
-                maxVel: 150,
+                minVel: 1,
+                maxVel: 2,
                 minMass: 1,
                 maxMass: 50,
                 massGradient: false
